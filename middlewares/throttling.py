@@ -1,6 +1,6 @@
 from aiogram.dispatcher.handler import CancelHandler
 from aiogram.dispatcher.middlewares import BaseMiddleware
-from aiogram.types import CallbackQuery, Message
+from aiogram.types import Message
 
 from data.config import PASS_PHRASE
 from keyboards.default.main_menu import main_keyboard
@@ -8,9 +8,6 @@ from utils.db_api.mongodb import users
 
 
 class ThrottlingMiddleware(BaseMiddleware):
-    async def on_pre_process_callback_query(self, call: CallbackQuery, data: dict):
-        await call.answer()
-
     async def on_pre_process_message(self, message: Message, data: dict):
         user_id = message.from_user.id
         name = message.from_user.full_name

@@ -1,5 +1,3 @@
-from pprint import pprint
-
 import pymongo
 
 # подключаемся к базе данных
@@ -11,7 +9,6 @@ db = db_client['bot_marking']
 users = db['users']
 posts = db['posts']
 tonalities = db['tonalities']
-posts_users = db['posts_users']
 
 # import csv
 # with open('mob_positive_12.csv', newline='', encoding='utf-8') as csvfile:
